@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://songshanshi.github.io/"/>
-  <updated>2018-05-08T12:38:42.811Z</updated>
+  <updated>2018-06-09T11:24:32.000Z</updated>
   <id>https://songshanshi.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://songshanshi.github.io/2018/06/09/ubuntu18.4%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%20Unable%20to%20correct%20problems,%20you%20have%20held%20broken%20packages/"/>
+    <id>https://songshanshi.github.io/2018/06/09/ubuntu18.4安装一些软件时出现 Unable to correct problems, you have held broken packages/</id>
+    <published>2018-06-09T11:25:28.028Z</published>
+    <updated>2018-06-09T11:24:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h2 id="ubuntu18-4安装一些软件时出现-Unable-to-correct-problems-you-have-held-broken-packages"><a href="#ubuntu18-4安装一些软件时出现-Unable-to-correct-problems-you-have-held-broken-packages" class="headerlink" title="ubuntu18.4安装一些软件时出现 Unable to correct problems, you have held broken packages"></a>ubuntu18.4安装一些软件时出现 Unable to correct problems, you have held broken packages</h2><p>这几天在看《揭秘家用路由器0day漏洞挖掘技术》下了ubuntu18.4，感觉Ubuntu还是不错的，发现没有Python2（mmp），安装是出现了Unable to correct problems, you have held broken packages问题（附图一张）</p><p><img src="./{XPQNVK@H@MKGNCOU0741.png" alt="Alt text"></p><p>查了百度许多资料都是这么说</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get upgrade</span><br><span class="line"></span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure><p>后来从<a href="https://askubuntu.com/questions/223237/unable-to-correct-problems-you-have-held-broken-packages" target="_blank" rel="noopener">这里</a><br>他这上面说aptitude解决，尝试后发现安装这个也有相同的问题，于是又用了下面的方法，成功了。<br>下面分享给大家：</p><p>用这条命令看你损坏的包然后卸载了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看包</span></span><br><span class="line">dpkg --get-selections | grep python</span><br><span class="line"><span class="comment">#卸载</span></span><br><span class="line">sudo apt-get remove libpython2.7</span><br><span class="line">sudo apt-get remove libpython2.7-minimal</span><br><span class="line">sudo apt-get remove libpython2.7-stdlib</span><br></pre></td></tr></table></figure></p><p>把有关的包都卸载了，让后再<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get insatll python</span><br></pre></td></tr></table></figure></p><p>我这里的python是其中一个出现问题的，如果童鞋在安装软件是出现这个错误按这个方法处理。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;h2 id=&quot;ubuntu18-4安装一些软件时出现-Unable-to-correct-problems-you-have-held-broken-packages&quot;&gt;&lt;a href=&quot;#ubuntu18-4安装一些软件时出现-Unable-to-correct-p
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

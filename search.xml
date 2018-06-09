@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2018%2F06%2F09%2Fubuntu18.4%E5%AE%89%E8%A3%85%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E6%97%B6%E5%87%BA%E7%8E%B0%20Unable%20to%20correct%20problems%2C%20you%20have%20held%20broken%20packages%2F</url>
+    <content type="text"><![CDATA[ubuntu18.4安装一些软件时出现 Unable to correct problems, you have held broken packages这几天在看《揭秘家用路由器0day漏洞挖掘技术》下了ubuntu18.4，感觉Ubuntu还是不错的，发现没有Python2（mmp），安装是出现了Unable to correct problems, you have held broken packages问题（附图一张） 查了百度许多资料都是这么说 123$ sudo apt-get upgrade$ sudo apt-get update 后来从这里他这上面说aptitude解决，尝试后发现安装这个也有相同的问题，于是又用了下面的方法，成功了。下面分享给大家： 用这条命令看你损坏的包然后卸载了123456#查看包dpkg --get-selections | grep python#卸载sudo apt-get remove libpython2.7sudo apt-get remove libpython2.7-minimalsudo apt-get remove libpython2.7-stdlib 把有关的包都卸载了，让后再1sudo apt-get insatll python 我这里的python是其中一个出现问题的，如果童鞋在安装软件是出现这个错误按这个方法处理。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F05%2F08%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
