@@ -311,6 +311,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://songshanshi.github.io/2018/10/08/Panther CTF/index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="嵩山石">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/first.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="嵩山石's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/08/Panther CTF/index/" itemprop="url">Panther ctf</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T22:35:16+08:00">
+                2018-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/08/Panther CTF/index/" class="leancloud_visitors" data-flag-title="Panther ctf">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,106
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#Panther CTF</p>
+<p>第一次写writeup开始记录在我的博客<br>这次没有做一道题就写writeup所以有些题忘了，<br>下次比赛一定做一道写一道writeup</p>
+<p>###misc</p>
+<p>####你会解压吗</p>
+<p><img src="./flag99.zip" alt="Alt text"><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">for i in &#123;1..100&#125;</span><br><span class="line">do</span><br><span class="line">x=$((100-$i))</span><br><span class="line">unzip ./flag$x.zip</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<p>####zzzzip?<br><img src="./flag.zip" alt="Alt text"></p>
+<p>用ziperello爆破出5位的密码<br>然后用十六进制编辑器发现flag</p>
+<p>####So many flag!<br><img src="./flag .txt" alt="Alt text"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">file=open(<span class="string">"E:\\flag.txt"</span>,mode=<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">flag=file.read()</span><br><span class="line">flag1=re.split(<span class="string">r"&#125;pctf&#123;"</span>,flag)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> flag1:</span><br><span class="line">    <span class="comment"># print(i)</span></span><br><span class="line">    <span class="keyword">if</span> len(i)==<span class="number">20</span>:</span><br><span class="line">        a=re.match(<span class="string">r"^[a-z][A-Z][0-9].+[a-z][A-Z][a-z]$"</span>,i)</span><br><span class="line">        print(a)</span><br><span class="line">        print(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(flag1)</span></span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+<p>####出题人的心思<br><img src="./nick.png" alt="Alt text"><br>题目是一张jpg图片用binwalk打开发现还有一张png图片<br>然后用kali自带的分离工具将图片分开，再用十六进制改变png图片的高度，看到flag</p>
+<p>###crypto</p>
+<p>####just so so!</p>
+<pre><code>题目描述:
+    密文：706374667b686868685f546831735f4833785f636f64657d
+答案格式: pctf{xxxxxxxxxxxxx}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">ab=<span class="string">"70,63,74,66,7b,68,68,68,68,5f,54,68,31,73,5f,48,33,78,5f,63,6f,64,65,7d"</span></span><br><span class="line">ac=re.split(<span class="string">","</span>,<span class="string">"70,63,74,66,7b,68,68,68,68,5f,54,68,31,73,5f,48,33,78,5f,63,6f,64,65,7d"</span>)</span><br><span class="line"></span><br><span class="line">print(ac)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ac:</span><br><span class="line"></span><br><span class="line">    print(chr(eval(i)))</span><br></pre></td></tr></table></figure>
+<p>pctf{hhhh_Th1S_H3x_code}</p>
+<p>####被加密了的flag</p>
+<pre><code>题目描述:
+    cpgs{Gu1f_1F_Ebg_1r}
+答案格式: pctf{xxxxxxxxxxxxx}
+</code></pre><p>忘记细节了，思路是26个字母表中间对折然后替换相应的字母<br>就转换出pctf了</p>
+<p>####My math is very poor</p>
+<p>题目描述:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line">data = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">flag = [] <span class="comment">#[x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x]</span></span><br><span class="line">a = <span class="number">9</span></span><br><span class="line">b = <span class="number">13</span></span><br><span class="line"><span class="keyword">assert</span> len(flag) == <span class="number">17</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'Encrypt : '</span>,</span><br><span class="line">    enc = <span class="string">''</span></span><br><span class="line">    enc_array = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(flag)):</span><br><span class="line">        tmp=(a*flag[i]+b)%<span class="number">26</span></span><br><span class="line">        enc_array.append(tmp)</span><br><span class="line">        enc += data[tmp]</span><br><span class="line">    <span class="keyword">print</span> enc <span class="comment"># yyynvjlpjccyxginp</span></span><br><span class="line">    <span class="keyword">print</span> enc_array </span><br><span class="line">|<span class="comment"># [24,24,24,13,21,9,11,15,9,2,2,24,23,6,8,13,15]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    encrypt()</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>答案格式: pctf{xxxxxxxxxxxxx}</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"> -*- coding: utf<span class="number">-8</span> -*-</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_lowercase <span class="keyword">as</span> lowercase</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_uppercase <span class="keyword">as</span> uppercase</span><br><span class="line"></span><br><span class="line">frequencyTable = [<span class="number">4</span>, <span class="number">19</span>, <span class="number">14</span>, <span class="number">0</span>, <span class="number">13</span>, <span class="number">8</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">7</span>, <span class="number">3</span>, \</span><br><span class="line">                  <span class="number">11</span>, <span class="number">2</span>, <span class="number">20</span>, <span class="number">12</span>, <span class="number">15</span>, <span class="number">24</span>, <span class="number">22</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">21</span>, \</span><br><span class="line">                  <span class="number">10</span>, <span class="number">23</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除预留的标点</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文本过滤</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">text_filter</span><span class="params">(text)</span>:</span></span><br><span class="line">    text = text.lower()</span><br><span class="line">    result = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(text)):</span><br><span class="line">        <span class="keyword">if</span> lowercase.find(text[i]) != <span class="number">-1</span>:</span><br><span class="line">            result += text[i]</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密部分</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encryption</span><span class="params">(plaintext, k1, k2)</span>:</span></span><br><span class="line">    plaintext = text_filter(plaintext)</span><br><span class="line">    result = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(plaintext)):</span><br><span class="line">        index = lowercase.find(plaintext[i])</span><br><span class="line">        c_index = (k1 * index + k2) % <span class="number">26</span></span><br><span class="line">        result += uppercase[c_index]</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密部分</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_inverse</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    #求a关于模b的逆元</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">1</span> <span class="keyword">and</span> b == <span class="number">0</span>):</span><br><span class="line">        x = <span class="number">1</span></span><br><span class="line">        y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> x, y</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        xx, yy = get_inverse(b, a % b)</span><br><span class="line">        x = yy</span><br><span class="line">        y = xx - a // b * yy</span><br><span class="line">        <span class="keyword">return</span> x, y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Decryption</span><span class="params">(k1, k2, ciphertext)</span>:</span></span><br><span class="line">    k3 = get_inverse(k1, <span class="number">26</span>)[<span class="number">0</span>]</span><br><span class="line">    result = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(ciphertext)):</span><br><span class="line">        index = lowercase.find(ciphertext[i])</span><br><span class="line">        p_index = k3 * (index - k2) % <span class="number">26</span></span><br><span class="line">        result += lowercase[p_index]</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ciphertext = <span class="string">"yyynvjlpjccyxginp"</span></span><br><span class="line">    print(Decryption(<span class="number">9</span>,<span class="number">13</span>,ciphertext))</span><br></pre></td></tr></table></figure>
+<p>仿射密码看<a href="https://blog.csdn.net/sinat_34927324/article/details/79700703" target="_blank" rel="noopener">这个博客</a>的</p>
+<p>其他题我也忘了。。。</p>
+<p>###reverse</p>
+<p>####软件破解第一步<br><img src="./Reverse11.exe" alt="Alt text"></p>
+<p>用ida打开就有flag了嘿嘿</p>
+<p>####come on!<img src="./flag_file.pyo" alt="Alt text"></p>
+<p>这是一个Python的编译后加了防反编译模块<br>用 easy Python Decompiler这个工具解开就可以看到源码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Embedded file name: /home/sliver/Documents/CTF/Python/python.py</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> py_compile</span><br><span class="line">py_compile.compile(<span class="string">'/home/sliver/Documents/CTF/Python/python.py'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span><span class="params">(message)</span>:</span></span><br><span class="line">    s = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        x = ord(i)</span><br><span class="line">        x = x - <span class="number">16</span></span><br><span class="line">        s += chr(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> base64.b64encode(s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">correct = <span class="string">'RFhZJU8hY09AaU9DZlJaVVNk'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">'Input flag:'</span></span><br><span class="line">flag = raw_input()</span><br><span class="line"><span class="keyword">if</span> encode(flag) == correct:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'correct,this is my flag'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'wrong'</span></span><br></pre></td></tr></table></figure>
+<p>然后用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">"p"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">"RFhZJU8hY09AaU9DZlJaVVNk"</span>:</span><br><span class="line">    x=ord(i)</span><br><span class="line">    x=x+<span class="number">16</span></span><br><span class="line">    s+=chr(x)</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure>
+<p>就可见flag</p>
+<p>####input flag<br><img src="./Reverse3.exe" alt="Alt text"><br>用ida打开f5大法 </p>
+<p>发现DXY%O!cO@iOCfRZUSd 对flag进行处理后与这个字符串进行比较<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">"p"</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">"DXY%O!cO@iOCfRZUSd"</span>:</span><br><span class="line">    x=ord(i)</span><br><span class="line">    x=x+<span class="number">16</span></span><br><span class="line">    s+=chr(x)</span><br><span class="line">print(s)</span><br></pre></td></tr></table></figure></p>
+<p>可解出flag</p>
+<p>###web</p>
+<p>####为什么这么简单</p>
+<pre><code>答案格式: pctf{xxxxxxxxxxxxx}
+题目链接: 题目链接
+</code></pre><p>[题目链接]<a href="http://47.94.4.84/web/web1abf20c91a442da48.php" target="_blank" rel="noopener">http://47.94.4.84/web/web1abf20c91a442da48.php</a></p>
+<p>用hackbar  post一个比66666大的数 （最快的方法了）</p>
+<p>####i’m so sad<br><a href="http://101.200.58.30/test1.php" target="_blank" rel="noopener">http://101.200.58.30/test1.php</a></p>
+<p>base64对字符串解码可看到代码<br>发送get请求a[]=1$b[]=2 得到flag</p>
+<p>####php is best language!</p>
+<p><a href="http://47.94.4.84/web/web25d47c5d8a6299792.php" target="_blank" rel="noopener">http://47.94.4.84/web/web25d47c5d8a6299792.php</a></p>
+<p>用hackbar post<br>magic_keys[]=1可得flag</p>
+<p>pctf结束</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	<div>
+  
+    </div>
+	<div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://songshanshi.github.io/2018/06/09/解决包损坏错误/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -701,7 +923,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -811,7 +1033,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共438字</span>
+  <span class="post-count">博客全站共1.5k字</span>
 </div>
 
   
